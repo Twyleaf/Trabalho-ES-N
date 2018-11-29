@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="clockLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="clockHourSpinner" min="-2" pref="36" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="clockHourLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="clockMinuteSpinner" min="-2" pref="36" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="clockMinuteLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="inUseLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="inUseValueLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="waterLevelLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="waterLevelValueLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="waterLevelUnitLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Component id="coffeLevelLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="coffeLevelValueLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="coffeLevelUnitLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                      <Component id="titleLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Component id="titleLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="clockLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="clockHourLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="clockMinuteLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="clockMinuteSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="clockHourSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="inUseLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="inUseValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="waterLevelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="waterLevelValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="waterLevelUnitLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="coffeLevelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="coffeLevelValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="coffeLevelUnitLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="titleLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Simulador da Cafeteira"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="clockLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rel&#xf3;gio interno:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="clockHourLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="hs"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="clockMinuteLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="min"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="clockMinuteSpinner">
+    </Component>
+    <Component class="javax.swing.JSpinner" name="clockHourSpinner">
+    </Component>
+    <Component class="javax.swing.JLabel" name="inUseLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fazendo caf&#xe9;?"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="inUseValueLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sim."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="waterLevelLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Quantidade de &#xe1;gua:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="waterLevelValueLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="waterLevelUnitLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="x&#xed;cara"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="coffeLevelLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Quantidade de caf&#xe9;:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="coffeLevelValueLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="coffeLevelUnitLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="colher"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
