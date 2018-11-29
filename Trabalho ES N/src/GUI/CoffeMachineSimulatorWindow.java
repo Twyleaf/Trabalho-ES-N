@@ -53,6 +53,8 @@ public class CoffeMachineSimulatorWindow extends javax.swing.JFrame {
 
         clockMinuteLabel.setText("min");
 
+        clockHourSpinner.setName(""); // NOI18N
+
         inUseLabel.setText("Fazendo café?");
 
         inUseValueLabel.setText("Sim.");

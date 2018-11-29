@@ -133,6 +133,9 @@
     <Component class="javax.swing.JSpinner" name="clockMinuteSpinner">
     </Component>
     <Component class="javax.swing.JSpinner" name="clockHourSpinner">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="inUseLabel">
       <Properties>
