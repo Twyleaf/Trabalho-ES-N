@@ -3,6 +3,7 @@ package Equipment;
 import java.util.Date;
 import java.util.List;
 import Interfaces.*;
+import Schedulers.CoffeeScheduler;
 import Data.*;
 
 
@@ -27,6 +28,12 @@ public class CoffeeMachine implements CoffeeMachineInterface {
 	private IoTGateway connectedGateway;
 
 	private IoTGatewayInterface iotGatewayInterface;
+        private Thread coffeeScheduler;
+        
+        public CoffeeMachine(){
+            coffeeScheduler= new Thread(new CoffeeScheduler());
+            coffeeScheduler.start();
+        }
 
 	public boolean checkReservoir() {
 		return false;
@@ -81,7 +88,9 @@ public class CoffeeMachine implements CoffeeMachineInterface {
 	 *  
 	 */
 	public void makeCoffee() {
-
+            List<int> sleepLevels = iotGatewayInterface.getUserHourlySleepLevels();
+            calculateCoffeeType(sleepLevels);
+              
 	}
 
 }

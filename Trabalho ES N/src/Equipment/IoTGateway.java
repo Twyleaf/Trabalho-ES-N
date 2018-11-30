@@ -17,8 +17,9 @@ public class IoTGateway implements IoTGatewayInterface {
 
 	}
 
-	public List<User> getUserHourlySleepLevels() {
-		return null;
+	public List<int> getUserHourlySleepLevels() {
+		
+            return new List<int>();
 	}
 
 	public IoTGateway getInstance() {
