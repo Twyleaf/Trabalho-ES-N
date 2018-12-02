@@ -13,7 +13,7 @@ import java.util.List;
 public class Cellphone implements CellphoneInterface {
 
     
-        private IoTGatewayInterface ioTGatewayInterface;
+        private IoTGatewayInterface connectedGateway;
 
 	private User connectedUser;
 
@@ -29,7 +29,7 @@ public class Cellphone implements CellphoneInterface {
         
 	public void addAlarmClockCoffeeMachine(String coffeeHourString,String coffeeMinuteString) {
             LocalDateTime coffeeDate= clockTimeToDateTime(coffeeHourString,coffeeMinuteString);
-            ioTGatewayInterface.addCoffeeMachineTime(coffeeDate);
+            connectedGateway.addCoffeeMachineTime(coffeeDate);
 	}
 
 	public List<Integer> getDoorIDs() {
@@ -50,7 +50,7 @@ public class Cellphone implements CellphoneInterface {
 	}
         
         public Cellphone(){
-            ioTGatewayInterface= IoTGateway.getInstance();
+            connectedGateway= IoTGateway.getInstance();
         }
 
 	public Boolean hasUser() {
