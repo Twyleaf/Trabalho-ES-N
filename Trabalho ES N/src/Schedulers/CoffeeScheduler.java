@@ -39,6 +39,7 @@ public class CoffeeScheduler implements Runnable {
             LocalDateTime currentDate = getCurrentDate();
             for (int i = 0; i < startTimes.size(); i++) {
                 if(startTimes.get(i).isBefore(currentDate)){
+                    coffeeMachine.removeTimeAt(i);
                     return true;
                 }
             }

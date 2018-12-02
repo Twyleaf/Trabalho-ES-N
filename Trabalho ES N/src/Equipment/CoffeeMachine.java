@@ -34,6 +34,7 @@ public class CoffeeMachine implements CoffeeMachineInterface {
         public CoffeeMachine(){
             startTimes=new ArrayList<LocalDateTime>();
             manualMode=false;
+            connectedGateway = IoTGateway.getInstance();
             coffeeScheduler= new Thread(new CoffeeScheduler(this));
             coffeeScheduler.start();
         }
@@ -100,6 +101,12 @@ public class CoffeeMachine implements CoffeeMachineInterface {
             List<Integer> sleepLevels = connectedGateway.getUserHourlySleepLevels();
             autonomousConfiguration = new CoffeeMachineConfiguration(sleepLevels);
             makeCoffee();
+        }
+        
+        public void removeTimeAt(int index){
+            if(startTimes.size()>index){
+                startTimes.remove(index);
+            }
         }
 
 }

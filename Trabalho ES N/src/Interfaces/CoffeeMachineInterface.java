@@ -16,4 +16,6 @@ public interface CoffeeMachineInterface {
 
         public List<LocalDateTime> getStartTimes();
 
+        public void removeTimeAt(int index);
+
 }
