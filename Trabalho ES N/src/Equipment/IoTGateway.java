@@ -24,15 +24,8 @@ public class IoTGateway implements IoTGatewayInterface {
 
 	}
 
-<<<<<<< HEAD
-	public List<int> getUserHourlySleepLevels() {
-		
-            return new List<int>();
-=======
 	public List<Integer> getUserHourlySleepLevels() {
-		
-            return connectedSmartwatches.get(0).getUserHourlySleepLevels();
->>>>>>> origin/IoTGatewayChanges
+		return connectedSmartwatches.get(0).getUserHourlySleepLevels();
 	}
 
 	public static IoTGateway getInstance() {
@@ -65,6 +58,33 @@ public class IoTGateway implements IoTGatewayInterface {
 	public void addCoffeeMachine(CoffeeMachineInterface coffeeMachine) {
             connectedCoffeeMachines.add(coffeeMachine);
 
+	}
+	
+	public void addDoor(DoorInterface door) {
+		connectedDoors.add(door);
+	}
+	
+	public List<Integer> getDoorIDs() {
+		
+		List<Integer> doorIDs = new ArrayList<Integer>();
+		Iterator idIterator = doorIDs.iterator();
+		Iterator doorIterator = connectedDoors.iterator();
+		
+		while(doorIterator.hasNext()) {
+			doorIDs.next() = doorIterator.next().getID();
+		}
+	}
+	
+	public Door getDoorWithID(int doorID) {
+		Iterator doorsIterator = connectedDoors.iterator();
+		
+		while(doorsIterator.hasNext()) {
+			if(doorsIterator.next().getID() == doorID) {
+				return doorsItarator.next();
+			} else {
+				return null
+			}
+		}
 	}
 
 
