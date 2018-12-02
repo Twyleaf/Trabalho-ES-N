@@ -5,6 +5,7 @@ import Interfaces.*;
 import Schedulers.CoffeeScheduler;
 import Data.*;
 import GUI.CoffeMachineSimulatorWindow;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -30,6 +31,8 @@ public class CoffeeMachine implements CoffeeMachineInterface {
         private Thread coffeeScheduler;
         
         private CoffeMachineSimulatorWindow coffeeMachineUI;
+        
+        private LocalDateTime currentTime = LocalDate.now().atTime(0, 0);
         
         public CoffeeMachine(){
             startTimes=new ArrayList<LocalDateTime>();
@@ -107,6 +110,18 @@ public class CoffeeMachine implements CoffeeMachineInterface {
             if(startTimes.size()>index){
                 startTimes.remove(index);
             }
+        }
+
+        @Override
+        public void setCurrentTime(String hourString, String minuteString) {
+            int currentHour = Integer.parseInt(hourString);
+            int currentMinute = Integer.parseInt(minuteString);
+            currentTime = LocalDate.now().atTime(currentHour, currentMinute);
+        }
+
+        @Override
+        public LocalDateTime getTime() {
+            return currentTime;
         }
 
 }

@@ -18,4 +18,8 @@ public interface CoffeeMachineInterface {
 
         public void removeTimeAt(int index);
 
+        public void setCurrentTime(String toString, String toString0);
+
+        public LocalDateTime getTime();
+
 }

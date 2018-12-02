@@ -47,7 +47,6 @@ public class CoffeeScheduler implements Runnable {
 	}
 
         private LocalDateTime getCurrentDate(){
-            return LocalDateTime.now();
-            //TODO: CURRENT DATE SER O CLOCK DO UI
+            return coffeeMachine.getTime();
         }
 }

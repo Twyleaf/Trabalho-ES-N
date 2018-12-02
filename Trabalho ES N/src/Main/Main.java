@@ -16,6 +16,7 @@ import Interfaces.*;
 public class Main {
     
     public static void main(String args[]) {
+        
         IoTGatewayInterface iot = IoTGateway.getInstance();
         CoffeeMachineInterface cm = new CoffeeMachine();
         iot.addCoffeeMachine(cm);
@@ -24,10 +25,11 @@ public class Main {
         CellphoneInterface phone=new Cellphone();
         iot.addCellphone(phone);
         phone.addAlarmClockCoffeeMachine("18", "00");
-        /*
-        CoffeMachineSimulatorWindow.showWindow();
+        
+        CoffeMachineSimulatorWindow coffeeWindow = new CoffeMachineSimulatorWindow(cm);
+        coffeeWindow.showWindow();
         DoorSimulatorWindow.showWindow();
-        SmartphoneInterfaceWindow.showWindow();*/
+        SmartphoneInterfaceWindow.showWindow();
     }
     
 }
