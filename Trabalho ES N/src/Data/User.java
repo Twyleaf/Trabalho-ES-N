@@ -9,6 +9,8 @@ public class User {
 	private String login;
 
 	private List<User> userFriends;
+	
+	private Key userKey;
 
 	public User(String name, String login, List<User> userFriends) {
 		this.name = name;
@@ -26,6 +28,10 @@ public class User {
 	
 	public List<User> getUserFriends() {
 		return this.userFriends;
+	}
+	
+	public void setUserKey(Key key) {
+		this.userKey = key;
 	}
 
 }
