@@ -11,10 +11,8 @@ import java.util.List;
 public class Cellphone implements CellphoneInterface {
 
 	private IoTGateway connectedGateway;
-
-	private List<Key> keys;
-
-	private IoTGatewayInterface ioTGatewayInterface;
+	private User connectedUser;
+	private Position myPosition;
 
 	public void addAlarmClockCoffeeMachine(String coffeeTime) {
 
@@ -23,23 +21,34 @@ public class Cellphone implements CellphoneInterface {
 	public Date clockTimeToDateTime(String coffeeTime) {
 		return null;
 	}
-
-	public void grantKey(Key key, User user){
-
+	
+	public void grantKey(LocalDate expirationTime, boolean isPermanent, String TargetUserName, int targetDoorID){
+		Key doorKey = new Key(expirationTime, isPermanent);
+		connectedGateway.grantKey(doorKey, TargetUserName, targetDoorID);
 	}
 
-	public Position getPosition() {
-		return null;
+	public Position getDeviceLocation() {
+		return myPosition;
 	}
-
-
-	/**
-	 * @see CellphoneInterface#hasDoorKey(int)
-	 */
-	public boolean hasDoorKey(int Key) {
-		return false;
+	
+	public String getUserName() {
+		if(connectedUser == null) {
+			return null;
+		} else {
+			return connectedUser.getName();
+		}
 	}
-
-
-
+	
+	public List<Integer> getDoorIDs() {
+		List<Integer> doorIDs = new ArrayList<Integer>();
+		
+		Iterator idIterator = doorIDs.iterator();
+		Iterator doorIterator = connectedGateway.getConnectedDoors().iterator();
+		
+		while(doorIterator.hasNext()) {
+			idIterator.next() = doorIterator.next().getID();
+		}
+		
+		return doorIDs;
+	}
 }
