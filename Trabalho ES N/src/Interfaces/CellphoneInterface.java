@@ -9,5 +9,7 @@ public interface CellphoneInterface {
 	public boolean hasDoorKey(int key);
 
 	public Position getPosition();
+        
+        public void addAlarmClockCoffeeMachine(String coffeeHourString,String coffeeMinuteString);
 
 }

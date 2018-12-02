@@ -12,12 +12,11 @@ import java.util.List;
 
 public class Cellphone implements CellphoneInterface {
 
-	private IoTGateway connectedGateway;
+    
+        private IoTGatewayInterface ioTGatewayInterface;
 
 	private List<Key> keys;
-
-	private IoTGatewayInterface ioTGatewayInterface;
-
+        
 	public void addAlarmClockCoffeeMachine(String coffeeHourString,String coffeeMinuteString) {
             LocalDateTime coffeeDate= clockTimeToDateTime(coffeeHourString,coffeeMinuteString);
             ioTGatewayInterface.addCoffeeMachineTime(coffeeDate);
@@ -44,6 +43,10 @@ public class Cellphone implements CellphoneInterface {
 	public boolean hasDoorKey(int Key) {
 		return false;
 	}
+        
+        public Cellphone(){
+            ioTGatewayInterface= IoTGateway.getInstance();
+        }
 
 
 

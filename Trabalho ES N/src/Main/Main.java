@@ -5,7 +5,9 @@
  */
 package Main;
 
+import Equipment.*;
 import GUI.*;
+import Interfaces.*;
 
 /**
  *
@@ -14,9 +16,18 @@ import GUI.*;
 public class Main {
     
     public static void main(String args[]) {
+        IoTGatewayInterface iot = IoTGateway.getInstance();
+        CoffeeMachineInterface cm = new CoffeeMachine();
+        iot.addCoffeeMachine(cm);
+        SmartwatchInterface sw=new Smartwatch();
+        iot.addSmartwatch(sw);
+        CellphoneInterface phone=new Cellphone();
+        iot.addCellphone(phone);
+        phone.addAlarmClockCoffeeMachine("2", "20");
+        /*
         CoffeMachineSimulatorWindow.showWindow();
         DoorSimulatorWindow.showWindow();
-        SmartphoneInterfaceWindow.showWindow();
+        SmartphoneInterfaceWindow.showWindow();*/
     }
     
 }

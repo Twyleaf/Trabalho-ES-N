@@ -30,7 +30,8 @@ public class CoffeeScheduler implements Runnable {
 		return null;
 	}
 
-	public void CoffeeScheduler(CoffeeMachine inputCoffeeMachine) {
+	public CoffeeScheduler(CoffeeMachine inputCoffeeMachine) {
+            coffeeMachine = inputCoffeeMachine;
 
 	}
 

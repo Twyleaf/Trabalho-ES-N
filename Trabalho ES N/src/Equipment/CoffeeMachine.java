@@ -32,10 +32,10 @@ public class CoffeeMachine implements CoffeeMachineInterface {
         private CoffeMachineSimulatorWindow coffeeMachineUI;
         
         public CoffeeMachine(){
-            coffeeScheduler= new Thread(new CoffeeScheduler());
-            coffeeScheduler.start();
             startTimes=new ArrayList<LocalDateTime>();
             manualMode=false;
+            coffeeScheduler= new Thread(new CoffeeScheduler(this));
+            coffeeScheduler.start();
         }
 
 	public boolean checkReservoir() {
