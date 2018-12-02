@@ -24,12 +24,12 @@ public class CoffeeMachineConfiguration {
             }
             if(sleepSum<SLEEP_COFFEE_INTENSITY_HIGH){
                 intensity = "High";
-                coffeeQuantity=12;
-                waterQuantity=25;
+                coffeeQuantity=3;
+                waterQuantity=2;
             }else{
                 intensity = "Medium";
-                coffeeQuantity=10;
-                waterQuantity=30;
+                coffeeQuantity=2;
+                waterQuantity=3;
             }
 
         }
@@ -37,5 +37,18 @@ public class CoffeeMachineConfiguration {
 	public void setDefault() {
 
 	}
+        
+        public String getIntensity(){
+            return intensity;
+        }
+        
+        public int getCoffeeQuantity(){
+            return coffeeQuantity;
+        }
+        
+        public int getWaterQuantity(){
+            return waterQuantity;
+        }
+
 
 }

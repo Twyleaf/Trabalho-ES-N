@@ -1,5 +1,6 @@
 package Interfaces;
 
+import GUI.CoffeMachineSimulatorWindow;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,5 +22,7 @@ public interface CoffeeMachineInterface {
         public void setCurrentTime(String toString, String toString0);
 
         public LocalDateTime getTime();
+
+        public void getUI(CoffeMachineSimulatorWindow UIInput);
 
 }

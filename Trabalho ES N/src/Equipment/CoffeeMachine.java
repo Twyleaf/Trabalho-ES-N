@@ -34,6 +34,8 @@ public class CoffeeMachine implements CoffeeMachineInterface {
         
         private LocalDateTime currentTime = LocalDate.now().atTime(0, 0);
         
+        private CoffeMachineSimulatorWindow coffeeWindow;
+        
         public CoffeeMachine(){
             startTimes=new ArrayList<LocalDateTime>();
             manualMode=false;
@@ -92,10 +94,9 @@ public class CoffeeMachine implements CoffeeMachineInterface {
 	 *  
 	 */
 	public void makeCoffee() {
-            //coffeeMachineUI.makingCoffee();
-            System.out.println("fazendo cafe");
-             //TODO: mostrar na UI que café está sendo feito
-             //tipo de café em autonomousConfiguration
+             if(coffeeWindow!=null){
+                 coffeeWindow.showMakingCoffee(autonomousConfiguration.getCoffeeQuantity(),autonomousConfiguration.getWaterQuantity());
+             }
              
 	}
 
@@ -122,6 +123,10 @@ public class CoffeeMachine implements CoffeeMachineInterface {
         @Override
         public LocalDateTime getTime() {
             return currentTime;
+        }
+        
+        public void getUI(CoffeMachineSimulatorWindow UIInput){
+            coffeeWindow =UIInput;
         }
 
 }

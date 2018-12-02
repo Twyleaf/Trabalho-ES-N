@@ -26,6 +26,7 @@ public class Main {
         iot.addCellphone(phone);
         
         CoffeMachineSimulatorWindow coffeeWindow = new CoffeMachineSimulatorWindow(cm);
+        cm.getUI(coffeeWindow);
         coffeeWindow.showWindow();
         DoorSimulatorWindow.showWindow();
         SmartphoneInterfaceWindow cellphoneWindow = new SmartphoneInterfaceWindow(phone);
