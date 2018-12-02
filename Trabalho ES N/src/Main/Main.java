@@ -23,7 +23,7 @@ public class Main {
         iot.addSmartwatch(sw);
         CellphoneInterface phone=new Cellphone();
         iot.addCellphone(phone);
-        phone.addAlarmClockCoffeeMachine("2", "20");
+        phone.addAlarmClockCoffeeMachine("18", "00");
         /*
         CoffeMachineSimulatorWindow.showWindow();
         DoorSimulatorWindow.showWindow();
