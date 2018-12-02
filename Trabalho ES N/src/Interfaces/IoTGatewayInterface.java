@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 public interface IoTGatewayInterface {
 
-	public abstract IoTGateway getInstance();
+	//public abstract IoTGateway getInstance();
 
 	public abstract void addCellphone(CellphoneInterface cellphone);
 

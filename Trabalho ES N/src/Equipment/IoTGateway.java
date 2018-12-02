@@ -16,6 +16,8 @@ public class IoTGateway implements IoTGatewayInterface {
         
         private List<DoorInterface> connectedDoors;
         
+        private static IoTGateway ioTGatewayInstance;
+        
         //private Database database;
 
 	public void saveUserHourlySleepLevels(List<User> hourlySleepLevels) {
@@ -27,8 +29,12 @@ public class IoTGateway implements IoTGatewayInterface {
             return connectedSmartwatches.get(0).getUserHourlySleepLevels();
 	}
 
-	public IoTGateway getInstance() {
-		return null;
+	public static IoTGateway getInstance() {
+            if(ioTGatewayInstance==null){
+                ioTGatewayInstance = new IoTGateway();
+                
+            }
+            return ioTGatewayInstance;
 	}
 
 	private IoTGateway() {
