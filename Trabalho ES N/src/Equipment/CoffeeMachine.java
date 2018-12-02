@@ -21,8 +21,6 @@ public class CoffeeMachine implements CoffeeMachineInterface {
 
 	private CoffeeMachineConfiguration manualConfiguration;
 
-	private boolean autonomousMode;
-
 	private boolean manualMode;
 
 	private List<LocalDateTime> startTimes;
@@ -37,6 +35,7 @@ public class CoffeeMachine implements CoffeeMachineInterface {
             coffeeScheduler= new Thread(new CoffeeScheduler());
             coffeeScheduler.start();
             startTimes=new ArrayList<LocalDateTime>();
+            manualMode=false;
         }
 
 	public boolean checkReservoir() {
@@ -92,6 +91,7 @@ public class CoffeeMachine implements CoffeeMachineInterface {
             //coffeeMachineUI.makingCoffee();
             System.out.println("fazendo cafe");
              //TODO: mostrar na UI que café está sendo feito
+             //tipo de café em autonomousConfiguration
              
 	}
 
