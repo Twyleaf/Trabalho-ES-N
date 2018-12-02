@@ -1,13 +1,16 @@
 package Data;
+
+import java.time.LocalDate;
+
 public class Key {
 
 	private int id;
 
-	private Date expirationTime;
+	private LocalDate expirationTime;
 
 	private boolean isPermanent;
 	
-	public Key(int keyID, Date keyExpirationTime, boolean keyIsPermanent) {
+	public Key(int keyID, LocalDate keyExpirationTime, boolean keyIsPermanent) {
 		this.id = keyID;
 		this.expirationTime = keyExpirationTime;
 		this.isPermanent = keyIsPermanent;
@@ -17,7 +20,7 @@ public class Key {
 		return this.id;
 	}
 	
-	public Date getExpiraationTime() {
+	public LocalDate getExpiraationTime() {
 		return this.expirationTime;
 	}
 	
