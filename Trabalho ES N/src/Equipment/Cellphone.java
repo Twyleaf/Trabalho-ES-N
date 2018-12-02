@@ -10,23 +10,11 @@ import java.util.List;
 
 public class Cellphone implements CellphoneInterface {
 
-	private IoTGatewayInterface ioTGatewayInterface;
-
+	private IoTGateway connectedGateway;
+	
 	private User connectedUser;
 
 	private Position myPosition;
-
-	public Position getDeviceLocation() {
-		return myPosition;
-	}
-
-	public void setDeviceLocation(Position deviceLocation) {
-		this.myPosition = deviceLocation;
-	}
-
-	public List<Integer> getDoorIDs() {
-		return null;
-	}
 
 	public void addAlarmClockCoffeeMachine(String coffeeTime) {
 
@@ -35,11 +23,42 @@ public class Cellphone implements CellphoneInterface {
 	public Date clockTimeToDateTime(String coffeeTime) {
 		return null;
 	}
-
-	public void grantKey(Key key, User user){
-
+	
+	
+	public Position getDeviceLocation() {
+		return myPosition;
 	}
 
+	public void setDeviceLocation(Position deviceLocation) {
+		this.myPosition = deviceLocation;
+	}
+	
+	public List<Integer> getDoorIDs() {
+		List<Integer> doorIDs = new ArrayList<Integer>();
+		
+		Iterator idIterator = doorIDs.iterator();
+		Iterator doorIterator = connectedGateway.getConnectedDoors().iterator();
+		
+		while(doorIterator.hasNext()) {
+			idIterator.next() = doorIterator.next().getID();
+		}
+		
+		return doorIDs;
+	}
+
+	public void grantKey(LocalDate expirationTime, boolean isPermanent, String TargetUserName, int targetDoorID){
+		Key doorKey = new Key(expirationTime, isPermanent);
+		connectedGateway.grantKey(doorKey, TargetUserName, targetDoorID);
+	}
+	
+	public String getUserName() {
+		if(connectedUser == null) {
+			return null;
+		} else {
+			return connectedUser.getName();
+		}
+	}	
+	
 	public Boolean hasUser() {
 	    if(connectedUser == null) {
 	    	return false;
@@ -48,5 +67,4 @@ public class Cellphone implements CellphoneInterface {
 		}
 
 	}
-
 }

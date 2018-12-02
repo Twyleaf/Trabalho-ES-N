@@ -24,9 +24,15 @@ public class IoTGateway implements IoTGatewayInterface {
 
 	}
 
+<<<<<<< HEAD
+	public List<int> getUserHourlySleepLevels() {
+		
+            return new List<int>();
+=======
 	public List<Integer> getUserHourlySleepLevels() {
 		
             return connectedSmartwatches.get(0).getUserHourlySleepLevels();
+>>>>>>> origin/IoTGatewayChanges
 	}
 
 	public static IoTGateway getInstance() {
