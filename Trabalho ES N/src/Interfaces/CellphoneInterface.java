@@ -2,12 +2,19 @@
 package Interfaces;
 
 import Data.*;
+
+import java.util.List;
+
 public interface CellphoneInterface {
 
-	public void grantKey(Key key, User user);
+	void grantKey(Key key, User user);
 
-	public boolean hasDoorKey(int key);
+	Boolean hasUser();
 
-	public Position getPosition();
+	Position getDeviceLocation();
+
+	List<Integer> getDoorIDs();
+
+	void setDeviceLocation(Position deviceLocation);
 
 }

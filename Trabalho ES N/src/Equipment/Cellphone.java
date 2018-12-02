@@ -10,11 +10,23 @@ import java.util.List;
 
 public class Cellphone implements CellphoneInterface {
 
-	private IoTGateway connectedGateway;
-
-	private List<Key> keys;
-
 	private IoTGatewayInterface ioTGatewayInterface;
+
+	private User connectedUser;
+
+	private Position myPosition;
+
+	public Position getDeviceLocation() {
+		return myPosition;
+	}
+
+	public void setDeviceLocation(Position deviceLocation) {
+		this.myPosition = deviceLocation;
+	}
+
+	public List<Integer> getDoorIDs() {
+		return null;
+	}
 
 	public void addAlarmClockCoffeeMachine(String coffeeTime) {
 
@@ -28,18 +40,13 @@ public class Cellphone implements CellphoneInterface {
 
 	}
 
-	public Position getPosition() {
-		return null;
+	public Boolean hasUser() {
+	    if(connectedUser == null) {
+	    	return false;
+		} else {
+	    	return true;
+		}
+
 	}
-
-
-	/**
-	 * @see CellphoneInterface#hasDoorKey(int)
-	 */
-	public boolean hasDoorKey(int Key) {
-		return false;
-	}
-
-
 
 }

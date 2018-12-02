@@ -9,12 +9,14 @@ public interface IoTGatewayInterface {
 
 	//public abstract IoTGateway getInstance();
 
-	public abstract void addCellphone(CellphoneInterface cellphone);
+    List<Integer> getDoorIDs();
 
-	public abstract void addSmartwatch(int smartwatch);
+	void addCellphone(CellphoneInterface cellphone);
+
+	void addSmartwatch(SmartwatchInterface smartwatch);
         
-        public List<Integer> getUserHourlySleepLevels();
-        
-        public void addCoffeeMachineTime(LocalDateTime time);
+    List<Integer> getUserHourlySleepLevels();
+
+    void addCoffeeMachineTime(LocalDateTime time);
 
 }
