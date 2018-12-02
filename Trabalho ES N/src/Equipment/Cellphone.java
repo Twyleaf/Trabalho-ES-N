@@ -5,7 +5,8 @@ import Data.Key;
 import Data.User;
 import Equipment.IoTGateway;
 import Interfaces.*;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Cellphone implements CellphoneInterface {
@@ -17,10 +18,11 @@ public class Cellphone implements CellphoneInterface {
 	private IoTGatewayInterface ioTGatewayInterface;
 
 	public void addAlarmClockCoffeeMachine(String coffeeTime) {
-
+            LocalDateTime coffeeDate= clockTimeToDateTime(coffeeTime);
+              
 	}
 
-	public Date clockTimeToDateTime(String coffeeTime) {
+	public LocalDateTime clockTimeToDateTime(String coffeeTime) {
 		return null;
 	}
 

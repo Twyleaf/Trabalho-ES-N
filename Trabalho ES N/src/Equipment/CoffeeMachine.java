@@ -1,10 +1,12 @@
 package Equipment;
 
-import java.util.Date;
 import java.util.List;
 import Interfaces.*;
 import Schedulers.CoffeeScheduler;
 import Data.*;
+import GUI.CoffeMachineSimulatorWindow;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 
 public class CoffeeMachine implements CoffeeMachineInterface {
@@ -23,16 +25,18 @@ public class CoffeeMachine implements CoffeeMachineInterface {
 
 	private boolean manualMode;
 
-	private List<Date> startTimes;
+	private List<LocalDateTime> startTimes;
 
-	private IoTGateway connectedGateway;
+	private IoTGatewayInterface connectedGateway;
 
-	private IoTGatewayInterface iotGatewayInterface;
         private Thread coffeeScheduler;
+        
+        private CoffeMachineSimulatorWindow coffeeMachineUI;
         
         public CoffeeMachine(){
             coffeeScheduler= new Thread(new CoffeeScheduler());
             coffeeScheduler.start();
+            startTimes=new ArrayList<LocalDateTime>();
         }
 
 	public boolean checkReservoir() {
@@ -43,15 +47,12 @@ public class CoffeeMachine implements CoffeeMachineInterface {
 		return null;
 	}
 
-	public void makeCoffee(List<Date> hourlySleepLevels) {
-
-	}
-
 	public CoffeeMachineConfiguration calculateCoffeeIntensity(List<User> sleepLevels) {
 		return null;
 	}
 
-	public void configureStartTimes(List<Date> startTimes, boolean manualMode) {
+	public void configureStartTimes(List<LocalDateTime> inputStartTimes, boolean manualMode) {
+            startTimes.addAll(inputStartTimes);
 
 	}
 
@@ -59,11 +60,11 @@ public class CoffeeMachine implements CoffeeMachineInterface {
 
 	}
 
-	public List<Date> getStartTimes() {
-		return null;
+	public List<LocalDateTime> getStartTimes() {
+		return startTimes;
 	}
 
-	public void setStartTimes(List<Date> startTimes) {
+	public void setStartTimes(List<LocalDateTime> startTimes) {
 
 	}
 
@@ -88,9 +89,17 @@ public class CoffeeMachine implements CoffeeMachineInterface {
 	 *  
 	 */
 	public void makeCoffee() {
-            List<int> sleepLevels = iotGatewayInterface.getUserHourlySleepLevels();
-            calculateCoffeeType(sleepLevels);
-              
+            //coffeeMachineUI.makingCoffee();
+            System.out.println("fazendo cafe");
+             //TODO: mostrar na UI que café está sendo feito
+             
 	}
+
+        @Override
+        public void makeCoffeeWithSleepLevels() {
+            List<Integer> sleepLevels = connectedGateway.getUserHourlySleepLevels();
+            autonomousConfiguration = new CoffeeMachineConfiguration(sleepLevels);
+            makeCoffee();
+        }
 
 }

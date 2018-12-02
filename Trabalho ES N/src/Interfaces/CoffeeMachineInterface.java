@@ -1,6 +1,6 @@
 package Interfaces;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -10,8 +10,10 @@ public interface CoffeeMachineInterface {
 
 	public abstract void makeCoffee();
 
-	public abstract void makeCoffee(List<Date> hourlySleepLevels);
+	public abstract void configureStartTimes(List<LocalDateTime> startTimes, boolean manualMode);
 
-	public abstract void configureStartTimes(List<Date> startTimes, boolean manualMode);
+        public void makeCoffeeWithSleepLevels();
+
+        public List<LocalDateTime> getStartTimes();
 
 }

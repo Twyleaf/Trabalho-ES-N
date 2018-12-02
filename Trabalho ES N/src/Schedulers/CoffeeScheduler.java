@@ -1,9 +1,9 @@
 package Schedulers;
 
-import java.util.Date;
 import java.util.List;
 import Equipment.CoffeeMachine;
 import Interfaces.*;
+import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,7 +14,7 @@ public class CoffeeScheduler implements Runnable {
 	public void run() {
             while(true){
                 if(isTimeToMakeCoffee(coffeeMachine.getStartTimes())){
-                    coffeeMachine.makeCoffee();
+                    coffeeMachine.makeCoffeeWithSleepLevels();
                 }else{
                     try {
                         Thread.sleep(500);
@@ -26,7 +26,7 @@ public class CoffeeScheduler implements Runnable {
          
 	}
 
-	public List<Date> addStartTimes() {
+	public List<LocalDateTime> addStartTimes() {
 		return null;
 	}
 
@@ -34,8 +34,18 @@ public class CoffeeScheduler implements Runnable {
 
 	}
 
-	public boolean isTimeToMakeCoffee(List<Date> startTimes) {
-		return false;
+	public boolean isTimeToMakeCoffee(List<LocalDateTime> startTimes) {
+            LocalDateTime currentDate = getCurrentDate();
+            for (int i = 0; i < startTimes.size(); i++) {
+                if(startTimes.get(i).isBefore(currentDate)){
+                    return true;
+                }
+            }
+            return false;
 	}
 
+        private LocalDateTime getCurrentDate(){
+            return LocalDateTime.now();
+            //TODO: CURRENT DATE SER O CLOCK DO UI
+        }
 }

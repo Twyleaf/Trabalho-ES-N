@@ -1,7 +1,7 @@
 package Equipment;
 
 import java.util.List;
-import java.util.Date;
+import java.time.LocalDateTime;
 import Data.User;
 import Interfaces.*;
 
@@ -17,9 +17,9 @@ public class IoTGateway implements IoTGatewayInterface {
 
 	}
 
-	public List<int> getUserHourlySleepLevels() {
+	public List<Integer> getUserHourlySleepLevels() {
 		
-            return new List<int>();
+            return connectedSmartwatches.get(0).getUserHourlySleepLevels();
 	}
 
 	public IoTGateway getInstance() {
@@ -30,7 +30,7 @@ public class IoTGateway implements IoTGatewayInterface {
 
 	}
 
-	public void addCoffeeMachineTime(Date time) {
+	public void addCoffeeMachineTime(LocalDateTime time) {
 
 	}
 

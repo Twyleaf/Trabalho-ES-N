@@ -5,17 +5,21 @@
  */
 package GUI;
 
+import Interfaces.CellphoneInterface;
+
 /**
  *
  * @author henrique
  */
 public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
 
+    //private CellphoneInterface connectedCellphone;
     /**
      * Creates new form SmartphoneInterfaceWindow
      */
     public SmartphoneInterfaceWindow() {
         initComponents();
+        //connectedCellphone= inputCellphone;
     }
 
     /**
@@ -46,7 +50,7 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
         alarmMinuteLabel = new javax.swing.JLabel();
         alarmMinuteSpinner = new javax.swing.JSpinner();
         alarmHourSpinner = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
+        createAlarmButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,10 +80,10 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
 
         alarmMinuteLabel.setText("min");
 
-        jButton1.setText("Criar Despertador");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        createAlarmButton.setText("Criar Despertador");
+        createAlarmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                createAlarmButtonActionPerformed(evt);
             }
         });
 
@@ -127,7 +131,7 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(alarmMinuteLabel)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1)))
+                                .addComponent(createAlarmButton)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -163,7 +167,7 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
                     .addComponent(alarmMinuteLabel)
                     .addComponent(alarmMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(alarmHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(createAlarmButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -179,9 +183,10 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void createAlarmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAlarmButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        alarmHourSpinner.getValue().toString();
+    }//GEN-LAST:event_createAlarmButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,11 +229,11 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner alarmHourSpinner;
     private javax.swing.JLabel alarmMinuteLabel;
     private javax.swing.JSpinner alarmMinuteSpinner;
+    private javax.swing.JButton createAlarmButton;
     private javax.swing.JLabel distanceToDoorLabel;
     private javax.swing.JSlider distanceToDoorSlider;
     private javax.swing.JLabel distanceToDoorUnitLabel;
     private javax.swing.JLabel distanceToDoorValueLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;

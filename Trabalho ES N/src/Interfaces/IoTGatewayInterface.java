@@ -3,6 +3,7 @@ package Interfaces;
 
 import java.util.List;
 import Equipment.IoTGateway;
+import java.time.LocalDateTime;
 
 public interface IoTGatewayInterface {
 
@@ -12,6 +13,8 @@ public interface IoTGatewayInterface {
 
 	public abstract void addSmartwatch(int smartwatch);
         
-        public List<int> getUserHourlySleepLevels();
+        public List<Integer> getUserHourlySleepLevels();
+        
+        public void addCoffeeMachineTime(LocalDateTime time);
 
 }
