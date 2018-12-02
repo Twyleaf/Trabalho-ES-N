@@ -12,3 +12,7 @@
 hs_err_pid*
 /Trabalho ES N/nbproject/private/
 /Trabalho ES N/build/
+
+# idea
+.idea/
+*.iml

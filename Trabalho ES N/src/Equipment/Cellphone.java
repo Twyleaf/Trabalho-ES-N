@@ -15,39 +15,51 @@ public class Cellphone implements CellphoneInterface {
     
         private IoTGatewayInterface ioTGatewayInterface;
 
-	private List<Key> keys;
+	private User connectedUser;
+
+	private Position myPosition;
+
+	public Position getDeviceLocation() {
+		return myPosition;
+	}
+
+	public void setDeviceLocation(Position deviceLocation) {
+		this.myPosition = deviceLocation;
+        }
         
 	public void addAlarmClockCoffeeMachine(String coffeeHourString,String coffeeMinuteString) {
             LocalDateTime coffeeDate= clockTimeToDateTime(coffeeHourString,coffeeMinuteString);
             ioTGatewayInterface.addCoffeeMachineTime(coffeeDate);
 	}
 
+	public List<Integer> getDoorIDs() {
+		return null;
+        }
 	public LocalDateTime clockTimeToDateTime(String coffeeHourString,String coffeeMinuteString) {
             int coffeeHour = Integer.parseInt(coffeeHourString);
             int coffeeMinute = Integer.parseInt(coffeeMinuteString);
             return LocalDate.now().atTime(coffeeHour, coffeeMinute);
 	}
 
+	public void addAlarmClockCoffeeMachine(String coffeeTime) {
+
+	}
+
 	public void grantKey(Key key, User user){
 
-	}
-
-	public Position getPosition() {
-		return null;
-	}
-
-
-	/**
-	 * @see CellphoneInterface#hasDoorKey(int)
-	 */
-	public boolean hasDoorKey(int Key) {
-		return false;
 	}
         
         public Cellphone(){
             ioTGatewayInterface= IoTGateway.getInstance();
         }
 
+	public Boolean hasUser() {
+	    if(connectedUser == null) {
+	    	return false;
+		} else {
+	    	return true;
+		}
 
+	}
 
 }
