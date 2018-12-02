@@ -9,7 +9,7 @@ import Interfaces.CoffeeMachineInterface;
 
 /**
  *
- * @author henrique
+ * @author henrique, David
  */
 public class CoffeMachineSimulatorWindow extends javax.swing.JFrame {
     private CoffeeMachineInterface coffeeMachine;

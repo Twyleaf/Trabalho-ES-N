@@ -24,12 +24,12 @@ public class Main {
         iot.addSmartwatch(sw);
         CellphoneInterface phone=new Cellphone();
         iot.addCellphone(phone);
-        phone.addAlarmClockCoffeeMachine("18", "00");
         
         CoffeMachineSimulatorWindow coffeeWindow = new CoffeMachineSimulatorWindow(cm);
         coffeeWindow.showWindow();
         DoorSimulatorWindow.showWindow();
-        SmartphoneInterfaceWindow.showWindow();
+        SmartphoneInterfaceWindow cellphoneWindow = new SmartphoneInterfaceWindow(phone);
+        cellphoneWindow.showWindow();
     }
     
 }
