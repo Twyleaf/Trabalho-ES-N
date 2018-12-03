@@ -15,6 +15,7 @@ public interface CellphoneInterface {
 
 	Boolean hasUser();
 
+        public void addAlarmClockCoffeeMachine(String coffeeHourString,String coffeeMinuteString);
 	Position getDeviceLocation();
 
 	void setDeviceLocation(Position deviceLocation);

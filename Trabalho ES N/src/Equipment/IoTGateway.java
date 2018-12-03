@@ -42,11 +42,12 @@ public class IoTGateway implements IoTGatewayInterface {
     public void saveUserHourlySleepLevels(List<User> hourlySleepLevels) {
 
     }
-
-    public List<Integer> getUserHourlySleepLevels() {
-        return connectedSmartwatches.get(0).getUserHourlySleepLevels();
+    
+	public List<Integer> getUserHourlySleepLevels() {
+            if (connectedSmartwatches != null){
+                return connectedSmartwatches.get(0).getUserHourlySleepLevels();
+            }else return new ArrayList<Integer>();
     }
-
 
     public void addCoffeeMachineTime(LocalDateTime time) {
         if (!connectedCoffeeMachines.isEmpty()) {
@@ -75,7 +76,6 @@ public class IoTGateway implements IoTGatewayInterface {
 
 
     public List<Integer> getDoorIDs() {
-
         List<Integer> doorIDs = new ArrayList<Integer>();
         for (DoorInterface door : connectedDoors) {
            doorIDs.add(door.getID());
@@ -116,4 +116,7 @@ public class IoTGateway implements IoTGatewayInterface {
         return false;
     }
 
+	public void saveUserHourlySleepLevels(List<User> hourlySleepLevels) {
+
+	}
 }

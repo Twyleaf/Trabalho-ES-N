@@ -21,8 +21,7 @@ public interface IoTGatewayInterface {
     DoorInterface getDoorWithID(int DoorID);
 
 	void addCellphone(CellphoneInterface cellphone);
-
-	void addSmartwatch(SmartwatchInterface smartwatch);
+	public abstract void addSmartwatch(SmartwatchInterface smartwatch);
         
     List<Integer> getUserHourlySleepLevels();
 
@@ -31,5 +30,7 @@ public interface IoTGatewayInterface {
     Boolean areObjectsNear(Position pos1, Position pos2);
 
     void grantKey(Key key, String username, int doorID);
+        
+    public void addCoffeeMachine(CoffeeMachineInterface coffeeMachine) ;
 
 }

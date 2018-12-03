@@ -5,17 +5,22 @@
  */
 package GUI;
 
+import Interfaces.CellphoneInterface;
+
 /**
  *
- * @author henrique
+ * @author henrique, David
  */
 public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
+    private CellphoneInterface cellphone;
 
+    //private CellphoneInterface connectedCellphone;
     /**
      * Creates new form SmartphoneInterfaceWindow
      */
-    public SmartphoneInterfaceWindow() {
+    public SmartphoneInterfaceWindow(CellphoneInterface inputCellphone) {
         initComponents();
+        cellphone= inputCellphone;
     }
 
     /**
@@ -34,7 +39,6 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
         keyGrantComboBox = new javax.swing.JComboBox<>();
         alarmDefinitionLabel = new javax.swing.JLabel();
         alarmHourLabel = new javax.swing.JLabel();
-        makeCoffeCheckBox = new javax.swing.JCheckBox();
         distanceToDoorLabel = new javax.swing.JLabel();
         distanceToDoorSlider = new javax.swing.JSlider();
         distanceToDoorValueLabel = new javax.swing.JLabel();
@@ -47,6 +51,7 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
         alarmMinuteLabel = new javax.swing.JLabel();
         alarmMinuteSpinner = new javax.swing.JSpinner();
         alarmHourSpinner = new javax.swing.JSpinner();
+        createAlarmButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,8 +69,6 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
 
         alarmHourLabel.setText("hs");
 
-        makeCoffeCheckBox.setText("Fazer café");
-
         distanceToDoorLabel.setText("Distância da porta:");
 
         distanceToDoorValueLabel.setText("5");
@@ -78,53 +81,66 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
 
         alarmMinuteLabel.setText("min");
 
+        alarmMinuteSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+
+        alarmHourSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+
+        createAlarmButton.setText("Criar Despertador");
+        createAlarmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createAlarmButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator1)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator1)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(distanceToDoorLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(distanceToDoorSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(distanceToDoorValueLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(distanceToDoorUnitLabel)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(userLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(userComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(keyGrantLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(keyGrantComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(85, 85, 85)
                                 .addComponent(keyGrantConfirmationButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(keyGrantReversionButton)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(0, 121, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(alarmDefinitionLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(alarmHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(alarmHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(alarmHourLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(alarmMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(alarmMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(alarmMinuteLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addComponent(makeCoffeCheckBox))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(distanceToDoorLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(distanceToDoorSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(distanceToDoorValueLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(distanceToDoorUnitLabel)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(createAlarmButton))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(titleLabel)
@@ -155,10 +171,10 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(alarmDefinitionLabel)
                     .addComponent(alarmHourLabel)
-                    .addComponent(makeCoffeCheckBox)
                     .addComponent(alarmMinuteLabel)
                     .addComponent(alarmMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(alarmHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(alarmHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createAlarmButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -174,10 +190,16 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void createAlarmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAlarmButtonActionPerformed
+        // TODO add your handling code here:
+        
+        cellphone.addAlarmClockCoffeeMachine(alarmHourSpinner.getValue().toString(), alarmMinuteSpinner.getValue().toString());
+    }//GEN-LAST:event_createAlarmButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void showWindow() {
+    public void showWindow() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -204,7 +226,7 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SmartphoneInterfaceWindow().setVisible(true);
+                setVisible(true);
             }
         });
     }
@@ -215,6 +237,7 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner alarmHourSpinner;
     private javax.swing.JLabel alarmMinuteLabel;
     private javax.swing.JSpinner alarmMinuteSpinner;
+    private javax.swing.JButton createAlarmButton;
     private javax.swing.JLabel distanceToDoorLabel;
     private javax.swing.JSlider distanceToDoorSlider;
     private javax.swing.JLabel distanceToDoorUnitLabel;
@@ -226,7 +249,6 @@ public class SmartphoneInterfaceWindow extends javax.swing.JFrame {
     private javax.swing.JButton keyGrantConfirmationButton;
     private javax.swing.JLabel keyGrantLabel;
     private javax.swing.JButton keyGrantReversionButton;
-    private javax.swing.JCheckBox makeCoffeCheckBox;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JComboBox<String> userComboBox;
     private javax.swing.JLabel userLabel;

@@ -5,17 +5,21 @@
  */
 package GUI;
 
+import Interfaces.CoffeeMachineInterface;
+
 /**
  *
- * @author henrique
+ * @author henrique, David
  */
 public class CoffeMachineSimulatorWindow extends javax.swing.JFrame {
+    private CoffeeMachineInterface coffeeMachine;
 
     /**
      * Creates new form CoffeMachineSimulatorWindow
      */
-    public CoffeMachineSimulatorWindow() {
+    public CoffeMachineSimulatorWindow(CoffeeMachineInterface inputCoffeeMachine) {
         initComponents();
+        coffeeMachine = inputCoffeeMachine;
     }
 
     /**
@@ -53,23 +57,36 @@ public class CoffeMachineSimulatorWindow extends javax.swing.JFrame {
 
         clockMinuteLabel.setText("min");
 
+        clockMinuteSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        clockMinuteSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                clockMinuteSpinnerStateChanged(evt);
+            }
+        });
+
+        clockHourSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
         clockHourSpinner.setName(""); // NOI18N
+        clockHourSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                clockHourSpinnerStateChanged(evt);
+            }
+        });
 
         inUseLabel.setText("Fazendo café?");
 
-        inUseValueLabel.setText("Sim.");
+        inUseValueLabel.setText("Não");
 
         waterLevelLabel.setText("Quantidade de água:");
 
-        waterLevelValueLabel.setText("1");
+        waterLevelValueLabel.setText("0");
 
-        waterLevelUnitLabel.setText("xícara");
+        waterLevelUnitLabel.setText("xícara(s)");
 
         coffeLevelLabel.setText("Quantidade de café:");
 
-        coffeLevelValueLabel.setText("2");
+        coffeLevelValueLabel.setText("0");
 
-        coffeLevelUnitLabel.setText("colher");
+        coffeLevelUnitLabel.setText("colher(es)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,10 +161,20 @@ public class CoffeMachineSimulatorWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void clockHourSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_clockHourSpinnerStateChanged
+       
+        setCoffeeMachineTime();
+    }//GEN-LAST:event_clockHourSpinnerStateChanged
+
+    private void clockMinuteSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_clockMinuteSpinnerStateChanged
+        
+        setCoffeeMachineTime();
+    }//GEN-LAST:event_clockMinuteSpinnerStateChanged
+
     /**
      * @param args the command line arguments
      */
-    public static void showWindow() {
+    public void showWindow() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -174,9 +201,19 @@ public class CoffeMachineSimulatorWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CoffeMachineSimulatorWindow().setVisible(true);
+                setVisible(true);
             }
         });
+    }
+    
+    private void setCoffeeMachineTime(){
+        coffeeMachine.setCurrentTime(clockHourSpinner.getValue().toString(), clockMinuteSpinner.getValue().toString());
+    }
+    
+    public void showMakingCoffee(int coffeeAmount, int waterAmount){
+        inUseValueLabel.setText("sim");
+        waterLevelValueLabel.setText(Integer.toString(waterAmount));
+        coffeLevelValueLabel.setText(Integer.toString(coffeeAmount));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
