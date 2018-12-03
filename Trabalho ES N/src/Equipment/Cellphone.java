@@ -5,29 +5,19 @@ import Data.Key;
 import Data.User;
 import Equipment.IoTGateway;
 import Interfaces.*;
-<<<<<<< HEAD
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
-=======
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
->>>>>>> 125b703951de1f1d4c3bab65643920cbf4ae18a1
 import java.util.List;
 
 public class Cellphone implements CellphoneInterface {
 
-<<<<<<< HEAD
 	private IoTGatewayInterface connectedGateway;
 	
-=======
-    
-        private IoTGatewayInterface connectedGateway;
-
->>>>>>> 125b703951de1f1d4c3bab65643920cbf4ae18a1
 	private User connectedUser;
 
 	private Position myPosition;
@@ -94,26 +84,6 @@ public class Cellphone implements CellphoneInterface {
 		connectedGateway.grantKey(doorKey, TargetUserName, targetDoorID);
 	}
 
-<<<<<<< HEAD
-=======
-	public void grantKey(Key key, User user){
-
-	}
-        
-        public Cellphone(){
-            connectedGateway= IoTGateway.getInstance();
-        }
-
-	
-	public String getUserName() {
-		if(connectedUser == null) {
-			return null;
-		} else {
-			return connectedUser.getName();
-		}
-	}	
-	
->>>>>>> 125b703951de1f1d4c3bab65643920cbf4ae18a1
 	public Boolean hasUser() {
 	    if(connectedUser == null) {
 	    	return false;
