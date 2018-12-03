@@ -20,8 +20,8 @@ public class Door implements DoorInterface {
 		this.id = id;
 		this.position = position;
 		this.manualMode = manualMode;
-		this.myKeys = new ArrayList<>();
-		this.connectedGateway = connectedGateway;
+		this.myKeys = new ArrayList<Key>();
+		this.connectedGateway = connectedGateway.getInstance();
 	}
 	
 	public int getID() {
@@ -32,7 +32,9 @@ public class Door implements DoorInterface {
 		return this.position;
 	}
 
-	public IoTGatewayInterface getConnectedGateway() { return this.connectedGateway; }
+	public IoTGatewayInterface getConnectedGateway() { 
+		return this.connectedGateway;
+	}
 	
 	public List<Key> getMyKeys() {
 		return myKeys;
@@ -41,9 +43,13 @@ public class Door implements DoorInterface {
 	public void addKey(Key key) {
 		myKeys.add(key);
 	}
-
+	
+	public void removeKey(Key key) {
+		myKeys.remove(key);
+	}
+	
 	public boolean isKeyValid(Key key) {
-		Iterator iterator = myKeys.iterator();
+		Iterator<Key> iterator = myKeys.iterator();
 		
 		while(iterator.hasNext()) {
 			if(key.getID() == iterator.next().getID()) {
@@ -52,7 +58,7 @@ public class Door implements DoorInterface {
 				} else if(key.getExpirationTime() == iterator.next().getExpirationTime() && key.getExpirationTime() >= LocalDate.now()) {
 					return true;
 				} else {
-					myKeys.remove(key);
+					removeKey(key);
 					return false;
 				}
 			} else {
