@@ -5,29 +5,17 @@ import Data.Key;
 import Data.User;
 import Equipment.IoTGateway;
 import Interfaces.*;
-<<<<<<< HEAD
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-=======
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
->>>>>>> 125b703951de1f1d4c3bab65643920cbf4ae18a1
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 public class Cellphone implements CellphoneInterface {
 
-<<<<<<< HEAD
 	private IoTGatewayInterface connectedGateway;
 	
-=======
-    
-        private IoTGatewayInterface connectedGateway;
-
->>>>>>> 125b703951de1f1d4c3bab65643920cbf4ae18a1
 	private User connectedUser;
 
 	private Position myPosition;
@@ -36,21 +24,36 @@ public class Cellphone implements CellphoneInterface {
 		this.connectedGateway = connectedGateway;
 		this.connectedUser = connectedUser;
 		this.myPosition = myPosition;
+		connectedGateway= IoTGateway.getInstance();
 	}
+	
+	public Cellphone(){
+            connectedGateway= IoTGateway.getInstance();
+        }
 
 	public void addAlarmClockCoffeeMachine(String coffeeTime) {
 
 	}
-
-	public Date clockTimeToDateTime(String coffeeTime) {
-		return null;
+	
+	public void addAlarmClockCoffeeMachine(String coffeeHourString,String coffeeMinuteString) {
+            LocalDateTime coffeeDate= clockTimeToDateTime(coffeeHourString,coffeeMinuteString);
+            connectedGateway.addCoffeeMachineTime(coffeeDate);
 	}
 	
+	public LocalDateTime clockTimeToDateTime(String coffeeHourString,String coffeeMinuteString) {
+            int coffeeHour = Integer.parseInt(coffeeHourString);
+            int coffeeMinute = Integer.parseInt(coffeeMinuteString);
+            return LocalDate.now().atTime(coffeeHour, coffeeMinute);
+	}
 	
 	public Position getDeviceLocation() {
 		return myPosition;
 	}
-
+	
+	public void setDeviceLocation(Position deviceLocation) {
+		this.myPosition = deviceLocation;
+        }
+	
 	public String getUserName() {
 		if(connectedUser == null) {
 			return null;
@@ -59,22 +62,15 @@ public class Cellphone implements CellphoneInterface {
 		}
 	}
 
-	public User getUser() { return this.connectedUser; }
-
-	public void setDeviceLocation(Position deviceLocation) {
-		this.myPosition = deviceLocation;
-        }
-        
-	public void addAlarmClockCoffeeMachine(String coffeeHourString,String coffeeMinuteString) {
-            LocalDateTime coffeeDate= clockTimeToDateTime(coffeeHourString,coffeeMinuteString);
-            connectedGateway.addCoffeeMachineTime(coffeeDate);
+	public User getUser() { 
+		return this.connectedUser;
 	}
-	
+
 	public List<Integer> getDoorIDs() {
 		List<Integer> doorIDs = new ArrayList<Integer>();
 		
-		Iterator idIterator = doorIDs.iterator();
-		Iterator doorIterator = connectedGateway.getConnectedDoors().iterator();
+		Iterator<Integer> idIterator = doorIDs.iterator();
+		Iterator<Integer> doorIterator = connectedGateway.getConnectedDoors().iterator();
 		
 		while(doorIterator.hasNext()) {
 			idIterator.next() = doorIterator.next().getID();
@@ -83,43 +79,16 @@ public class Cellphone implements CellphoneInterface {
 		return doorIDs;
         }
         
-	public LocalDateTime clockTimeToDateTime(String coffeeHourString,String coffeeMinuteString) {
-            int coffeeHour = Integer.parseInt(coffeeHourString);
-            int coffeeMinute = Integer.parseInt(coffeeMinuteString);
-            return LocalDate.now().atTime(coffeeHour, coffeeMinute);
-	}
-
 	public void grantKey(LocalDate expirationTime, boolean isPermanent, String TargetUserName, int targetDoorID){
 		Key doorKey = new Key(expirationTime, isPermanent);
 		connectedGateway.grantKey(doorKey, TargetUserName, targetDoorID);
 	}
-
-<<<<<<< HEAD
-=======
-	public void grantKey(Key key, User user){
-
-	}
         
-        public Cellphone(){
-            connectedGateway= IoTGateway.getInstance();
-        }
-
-	
-	public String getUserName() {
-		if(connectedUser == null) {
-			return null;
-		} else {
-			return connectedUser.getName();
-		}
-	}	
-	
->>>>>>> 125b703951de1f1d4c3bab65643920cbf4ae18a1
-	public Boolean hasUser() {
+        public Boolean hasUser() {
 	    if(connectedUser == null) {
 	    	return false;
 		} else {
 	    	return true;
 		}
-
 	}
 }
