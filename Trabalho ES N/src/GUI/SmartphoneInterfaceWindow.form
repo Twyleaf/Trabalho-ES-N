@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -25,11 +25,26 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="distanceToDoorLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="distanceToDoorSlider" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="distanceToDoorValueLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="distanceToDoorUnitLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="userLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -47,33 +62,22 @@
                               <Component id="keyGrantReversionButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="121" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Component id="alarmDefinitionLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="alarmHourSpinner" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="alarmHourSpinner" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="alarmHourLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="alarmMinuteSpinner" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="alarmMinuteSpinner" min="-2" pref="42" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="alarmMinuteLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="makeCoffeCheckBox" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="distanceToDoorLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="distanceToDoorSlider" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="distanceToDoorValueLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="distanceToDoorUnitLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="createAlarmButton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -110,10 +114,10 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="alarmDefinitionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="alarmHourLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="makeCoffeCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="alarmMinuteLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="alarmMinuteSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="alarmHourSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="createAlarmButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
@@ -183,11 +187,6 @@
         <Property name="text" type="java.lang.String" value="hs"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="makeCoffeCheckBox">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Fazer caf&#xe9;"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="distanceToDoorLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Dist&#xe2;ncia da porta:"/>
@@ -227,8 +226,26 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="alarmMinuteSpinner">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="59" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="alarmHourSpinner">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="23" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="createAlarmButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Criar Despertador"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createAlarmButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -12,13 +12,12 @@ public interface IoTGatewayInterface {
 	List<Integer> getDoorIDs();
 
 	void addCellphone(CellphoneInterface cellphone);
-
-	void addSmartwatch(SmartwatchInterface smartwatch);
+	public abstract void addSmartwatch(SmartwatchInterface smartwatch);
         
-    	List<Integer> getUserHourlySleepLevels();
-
-    	void addCoffeeMachineTime(LocalDateTime time);
+        public List<Integer> getUserHourlySleepLevels();
         
-	public List<Integer> getUserHourlySleepLevels();
+        public void addCoffeeMachineTime(LocalDateTime time);
+        
+        public void addCoffeeMachine(CoffeeMachineInterface coffeeMachine) ;
 
 }

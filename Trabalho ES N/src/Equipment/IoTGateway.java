@@ -25,7 +25,9 @@ public class IoTGateway implements IoTGatewayInterface {
 	}
 
 	public List<Integer> getUserHourlySleepLevels() {
-		return connectedSmartwatches.get(0).getUserHourlySleepLevels();
+            if (connectedSmartwatches != null){
+                return connectedSmartwatches.get(0).getUserHourlySleepLevels();
+            }else return new ArrayList<Integer>();
 	}
 
 	public static IoTGateway getInstance() {
@@ -91,8 +93,14 @@ public class IoTGateway implements IoTGatewayInterface {
 	/**
 	 * @see IoTGatewayInterface#addSmartwatch(int)
 	 */
-	public void addSmartwatch(int smartwatch) {
+	public void addSmartwatch(SmartwatchInterface smartwatch) {
+            connectedSmartwatches.add(smartwatch);
 
 	}
+
+        @Override
+        public List<Integer> getDoorIDs() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
 
 }

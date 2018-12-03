@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface SmartwatchInterface {
 
-	public abstract List<User> getUserHourlySleepLevels();
+	public abstract List<Integer> getUserHourlySleepLevels();
 
 	public abstract void grantKey(Key key, User user);
 
