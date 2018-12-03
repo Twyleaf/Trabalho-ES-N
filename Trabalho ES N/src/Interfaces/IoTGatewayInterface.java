@@ -9,7 +9,7 @@ public interface IoTGatewayInterface {
 
 	//public abstract IoTGateway getInstance();
 
-    List<Integer> getDoorIDs();
+	List<Integer> getDoorIDs();
 
 	void addCellphone(CellphoneInterface cellphone);
 	public abstract void addSmartwatch(SmartwatchInterface smartwatch);
@@ -19,6 +19,5 @@ public interface IoTGatewayInterface {
         public void addCoffeeMachineTime(LocalDateTime time);
         
         public void addCoffeeMachine(CoffeeMachineInterface coffeeMachine) ;
-        
 
 }
