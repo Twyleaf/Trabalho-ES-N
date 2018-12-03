@@ -2,6 +2,9 @@ package Equipment;
 
 import java.util.ArrayList;
 import java.time.LocalDate;
+import java.util.Iterator;
+import java.util.List;
+
 import Data.*;
 import Interfaces.*;
 
@@ -11,12 +14,14 @@ public class Door implements DoorInterface {
 	private Position position;
 	private boolean manualMode;
 	private List<Key> myKeys;
+	private IoTGatewayInterface connectedGateway
 
-	public Door(int id, Position position, boolean manualMode) {
+	public Door(int id, Position position, boolean manualMode, IoTGatewayInterface connectedGateway) {
 		this.id = id;
 		this.position = position;
 		this.manualMode = manualMode;
 		this.myKeys = new ArrayList<>();
+		this.connectedGateway = connectedGateway;
 	}
 	
 	public int getID() {
@@ -26,6 +31,8 @@ public class Door implements DoorInterface {
 	public Position getPosition() {
 		return this.position;
 	}
+
+	public IoTGatewayInterface getConnectedGateway() { return this.connectedGateway; }
 	
 	public List<Key> getMyKeys() {
 		return myKeys;

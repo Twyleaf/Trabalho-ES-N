@@ -29,6 +29,8 @@ public class User {
 	public List<User> getUserFriends() {
 		return this.userFriends;
 	}
+
+	public Key getUserKey() { return this.userKey; }
 	
 	public void setUserKey(Key key) {
 		this.userKey = key;

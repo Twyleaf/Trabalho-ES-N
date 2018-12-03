@@ -4,8 +4,12 @@ import Data.*;
 
 public interface DoorInterface {
 
-	public abstract Position getPosition();
+	Position getPosition();
 
-	public boolean isKeyValid(Key key);
+	boolean isKeyValid(Key key);
+
+	int getID();
+
+	IoTGatewayInterface getConnectedGateway;
 
 }

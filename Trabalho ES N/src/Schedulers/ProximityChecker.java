@@ -1,24 +1,46 @@
 package Schedulers;
 
 
+import Data.Key;
 import Data.User;
 import Equipment.Door;
 
+import java.util.List;
+
 public class ProximityChecker implements Runnable {
 
-	public void run() {
+	private Door inputDoor;
 
+	public ProximityChecker(Door inputDoor) {
+		this.inputDoor = inputDoor;
 	}
 
-	public ProximityChecker ProximityChecker(Door inputDoor) {
-		return null;
-	}
-
-	public boolean isUserNearby(User user) {
+	public boolean verifyUsersNearDoor(List<User> users) {
+		for (User user : users) {
+			Key key = user.getUserKey();
+			if(inputDoor.isKeyValid(key)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
-	public void addKey() {
+	public void run() {
+		while(true) {
+			List<User> nearbyUsers;
+			nearbyUsers = inputDoor.getConnectedGateway().getNearbyUsers();
+			if(verifyUsersNearDoor(nearbyUsers)){
+				for (User user : nearbyUsers) {
+					Key userKey = user.getUserKey();
+					if(inputDoor.isKeyValid(userKey)) {
+						//TODO: unlockdoor
+					} else {
+						//TODO: lockdoor
+					}
+				}
+			}
+		}
+
 
 	}
 

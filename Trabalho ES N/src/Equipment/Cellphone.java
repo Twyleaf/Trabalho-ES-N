@@ -5,16 +5,26 @@ import Data.Key;
 import Data.User;
 import Equipment.IoTGateway;
 import Interfaces.*;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class Cellphone implements CellphoneInterface {
 
-	private IoTGateway connectedGateway;
+	private IoTGatewayInterface connectedGateway;
 	
 	private User connectedUser;
 
 	private Position myPosition;
+
+	public Cellphone(IoTGatewayInterface connectedGateway, User connectedUser, Position myPosition) {
+		this.connectedGateway = connectedGateway;
+		this.connectedUser = connectedUser;
+		this.myPosition = myPosition;
+	}
 
 	public void addAlarmClockCoffeeMachine(String coffeeTime) {
 
@@ -28,6 +38,16 @@ public class Cellphone implements CellphoneInterface {
 	public Position getDeviceLocation() {
 		return myPosition;
 	}
+
+	public String getUserName() {
+		if(connectedUser == null) {
+			return null;
+		} else {
+			return connectedUser.getName();
+		}
+	}
+
+	public User getUser() { return this.connectedUser; }
 
 	public void setDeviceLocation(Position deviceLocation) {
 		this.myPosition = deviceLocation;
@@ -50,15 +70,7 @@ public class Cellphone implements CellphoneInterface {
 		Key doorKey = new Key(expirationTime, isPermanent);
 		connectedGateway.grantKey(doorKey, TargetUserName, targetDoorID);
 	}
-	
-	public String getUserName() {
-		if(connectedUser == null) {
-			return null;
-		} else {
-			return connectedUser.getName();
-		}
-	}	
-	
+
 	public Boolean hasUser() {
 	    if(connectedUser == null) {
 	    	return false;

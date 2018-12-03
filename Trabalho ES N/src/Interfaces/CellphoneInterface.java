@@ -7,13 +7,15 @@ import java.util.List;
 
 public interface CellphoneInterface {
 
+	List<Integer> getDoorIDs();
+
+	User getUser();
+
 	void grantKey(Key key, User user);
 
 	Boolean hasUser();
 
 	Position getDeviceLocation();
-
-	List<Integer> getDoorIDs();
 
 	void setDeviceLocation(Position deviceLocation);
 
