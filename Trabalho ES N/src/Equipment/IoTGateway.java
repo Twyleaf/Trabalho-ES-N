@@ -25,10 +25,10 @@ public class IoTGateway implements IoTGatewayInterface {
     //private Database database;
 
     private IoTGateway() {
-        this.connectedPhones = new ArrayList<>();
-        this.connectedCoffeeMachines = new ArrayList<>();
-        this.connectedSmartwatches = new ArrayList<>();
-        this.connectedDoors = new ArrayList<>();
+        this.connectedPhones = new ArrayList<CellphoneInterface>();
+        this.connectedCoffeeMachines = new ArrayList<CoffeeMachineInterface>();
+        this.connectedSmartwatches = new ArrayList<>(SmartwatchInterface);
+        this.connectedDoors = new ArrayList<DoorInterface>();
     }
 
     public static IoTGateway getInstance() {
@@ -42,8 +42,8 @@ public class IoTGateway implements IoTGatewayInterface {
     public void saveUserHourlySleepLevels(List<User> hourlySleepLevels) {
 
     }
-    
-	public List<Integer> getUserHourlySleepLevels() {
+
+    public List<Integer> getUserHourlySleepLevels() {
             if (connectedSmartwatches != null){
                 return connectedSmartwatches.get(0).getUserHourlySleepLevels();
             }else return new ArrayList<Integer>();
@@ -115,8 +115,4 @@ public class IoTGateway implements IoTGatewayInterface {
         }
         return false;
     }
-
-	public void saveUserHourlySleepLevels(List<User> hourlySleepLevels) {
-
-	}
 }

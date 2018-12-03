@@ -33,9 +33,13 @@ public class ProximityChecker implements Runnable {
 				for (User user : nearbyUsers) {
 					Key userKey = user.getUserKey();
 					if(inputDoor.isKeyValid(userKey)) {
-						//TODO: unlockdoor
+						if(inputDoor.getStatus == "close") {						
+							inputDoor.unlockDoor();
+						}
 					} else {
-						//TODO: lockdoor
+						if(inputDoor.getStatus == "open") {						
+							inputDoor.lockDoor();
+						}
 					}
 				}
 			}

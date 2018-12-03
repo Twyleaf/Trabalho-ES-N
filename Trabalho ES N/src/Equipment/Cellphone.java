@@ -24,18 +24,9 @@ public class Cellphone implements CellphoneInterface {
 	private Position myPosition;
 
 	public Cellphone(IoTGatewayInterface connectedGateway, User connectedUser, Position myPosition) {
-		this.connectedGateway = connectedGateway;
+		this.connectedGateway = connectedGateway.getInstance();
 		this.connectedUser = connectedUser;
 		this.myPosition = myPosition;
-		connectedGateway= IoTGateway.getInstance();
-	}
-	
-	public Cellphone(){
-            connectedGateway= IoTGateway.getInstance();
-        }
-
-	public void addAlarmClockCoffeeMachine(String coffeeTime) {
-
 	}
 	
 	public void addAlarmClockCoffeeMachine(String coffeeHourString,String coffeeMinuteString) {

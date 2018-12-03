@@ -14,6 +14,7 @@ public class Door implements DoorInterface {
 	private Position position;
 	private boolean manualMode;
 	private List<Key> myKeys;
+	private String status;
 	private IoTGatewayInterface connectedGateway
 
 	public Door(int id, Position position, boolean manualMode, IoTGatewayInterface connectedGateway) {
@@ -67,4 +68,15 @@ public class Door implements DoorInterface {
 		}
 	}
 
+	public String getStatus() {
+		return this.status;
+	}	
+	
+	public void lockDoor() {
+		this.status = "close";
+	}
+
+	public void unlockDoor() {
+		this.status = "open";
+	}
 }
