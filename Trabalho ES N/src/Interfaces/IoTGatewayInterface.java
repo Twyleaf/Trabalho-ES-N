@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 public interface IoTGatewayInterface {
 
-	//public abstract IoTGateway getInstance();
+	//IoTGateway getInstance();
 
 	List<Integer> getDoorIDs();
 
@@ -21,6 +21,7 @@ public interface IoTGatewayInterface {
     DoorInterface getDoorWithID(int DoorID);
 
 	void addCellphone(CellphoneInterface cellphone);
+	
 	public abstract void addSmartwatch(SmartwatchInterface smartwatch);
         
     List<Integer> getUserHourlySleepLevels();
@@ -29,8 +30,10 @@ public interface IoTGatewayInterface {
 
     Boolean areObjectsNear(Position pos1, Position pos2);
 
-    void grantKey(Key key, String username, int doorID);
+    public void grantKey(Key doorKey, String targetUserName, int targetDoorID);
         
     public void addCoffeeMachine(CoffeeMachineInterface coffeeMachine) ;
+    
+    public List<DoorInterface> getConnectedDoors();
 
 }

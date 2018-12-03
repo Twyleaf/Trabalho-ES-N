@@ -16,11 +16,16 @@ public class Key {
 		this.isPermanent = keyIsPermanent;
 	}
 	
+	public Key(LocalDate keyExpirationTime, boolean keyIsPermanent) {
+		this.expirationTime = keyExpirationTime;
+		this.isPermanent = keyIsPermanent;
+	}
+	
 	public int getID() {
 		return this.id;
 	}
 	
-	public LocalDate getExpiraationTime() {
+	public LocalDate getExpirationTime() {
 		return this.expirationTime;
 	}
 	

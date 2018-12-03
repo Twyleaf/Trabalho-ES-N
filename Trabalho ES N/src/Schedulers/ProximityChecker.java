@@ -28,16 +28,16 @@ public class ProximityChecker implements Runnable {
 	public void run() {
 		while(true) {
 			List<User> nearbyUsers;
-			nearbyUsers = inputDoor.getConnectedGateway().getNearbyUsers();
+			nearbyUsers = inputDoor.getConnectedGateway().getNearbyUsers(inputDoor.getPosition());
 			if(verifyUsersNearDoor(nearbyUsers)){
 				for (User user : nearbyUsers) {
 					Key userKey = user.getUserKey();
 					if(inputDoor.isKeyValid(userKey)) {
-						if(inputDoor.getStatus == "close") {						
+						if(inputDoor.getStatus() == "close") {						
 							inputDoor.unlockDoor();
 						}
 					} else {
-						if(inputDoor.getStatus == "open") {						
+						if(inputDoor.getStatus() == "open") {						
 							inputDoor.lockDoor();
 						}
 					}

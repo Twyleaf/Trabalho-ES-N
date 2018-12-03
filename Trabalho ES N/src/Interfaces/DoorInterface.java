@@ -8,8 +8,12 @@ public interface DoorInterface {
 
 	boolean isKeyValid(Key key);
 
-	int getID();
+	public int getID();
 
-	IoTGatewayInterface getConnectedGateway;
+	IoTGatewayInterface getConnectedGateway();
+	
+	public String getStatus();
+	
+	public void addKey(Key key);
 
 }

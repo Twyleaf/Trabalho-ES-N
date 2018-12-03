@@ -15,7 +15,7 @@ public class Door implements DoorInterface {
 	private boolean manualMode;
 	private List<Key> myKeys;
 	private String status;
-	private IoTGatewayInterface connectedGateway
+	private IoTGatewayInterface connectedGateway;
 
 	public Door(int id, Position position, boolean manualMode, IoTGatewayInterface connectedGateway) {
 		this.id = id;
@@ -56,7 +56,7 @@ public class Door implements DoorInterface {
 			if(key.getID() == iterator.next().getID()) {
 				if(key.getIsPermanent() == iterator.next().getIsPermanent() && key.getIsPermanent() == true) {
 					return true;
-				} else if(key.getExpirationTime() == iterator.next().getExpirationTime() && key.getExpirationTime() >= LocalDate.now()) {
+				} else if(key.getExpirationTime().isEqual(iterator.next().getExpirationTime()) && key.getExpirationTime().isEqual(LocalDate.now()) || key.getExpirationTime().isAfter(LocalDate.now())) {
 					return true;
 				} else {
 					removeKey(key);
@@ -66,6 +66,7 @@ public class Door implements DoorInterface {
 				return false;
 			}
 		}
+		return false;
 	}
 
 	public String getStatus() {

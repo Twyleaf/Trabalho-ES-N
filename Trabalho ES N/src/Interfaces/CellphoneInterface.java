@@ -2,7 +2,7 @@
 package Interfaces;
 
 import Data.*;
-
+import java.time.LocalDate;
 import java.util.List;
 
 public interface CellphoneInterface {
@@ -11,12 +11,13 @@ public interface CellphoneInterface {
 
 	User getUser();
 
-	void grantKey(Key key, User user);
+	public void grantKey(LocalDate expirationTime, boolean isPermanent, String TargetUserName, int targetDoorID);
 
 	Boolean hasUser();
 
-        public void addAlarmClockCoffeeMachine(String coffeeHourString,String coffeeMinuteString);
-	Position getDeviceLocation();
+    public void addAlarmClockCoffeeMachine(String coffeeHourString,String coffeeMinuteString);
+	
+    Position getDeviceLocation();
 
 	void setDeviceLocation(Position deviceLocation);
 

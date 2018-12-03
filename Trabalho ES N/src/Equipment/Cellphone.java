@@ -22,7 +22,11 @@ public class Cellphone implements CellphoneInterface {
 	private User connectedUser;
 
 	private Position myPosition;
-
+	
+	public Cellphone() {
+		this.connectedGateway = connectedGateway.getInstance();
+	}
+	
 	public Cellphone(IoTGatewayInterface connectedGateway, User connectedUser, Position myPosition) {
 		this.connectedGateway = connectedGateway.getInstance();
 		this.connectedUser = connectedUser;
@@ -63,19 +67,18 @@ public class Cellphone implements CellphoneInterface {
 	public List<Integer> getDoorIDs() {
 		List<Integer> doorIDs = new ArrayList<Integer>();
 		
-		Iterator<Integer> idIterator = doorIDs.iterator();
-		Iterator<Integer> doorIterator = connectedGateway.getConnectedDoors().iterator();
+		Iterator<DoorInterface> iterator = connectedGateway.getConnectedDoors().iterator();
 		
-		while(doorIterator.hasNext()) {
-			idIterator.next() = doorIterator.next().getID();
+		while(iterator.hasNext()) {
+			doorIDs.add(iterator.next().getID());
 		}
 		
 		return doorIDs;
-        }
+    }
         
-	public void grantKey(LocalDate expirationTime, boolean isPermanent, String TargetUserName, int targetDoorID){
+	public void grantKey(LocalDate expirationTime, boolean isPermanent, String targetUserName, int targetDoorID){
 		Key doorKey = new Key(expirationTime, isPermanent);
-		connectedGateway.grantKey(doorKey, TargetUserName, targetDoorID);
+		connectedGateway.grantKey(doorKey, targetUserName, targetDoorID);
 	}
 
 	public Boolean hasUser() {

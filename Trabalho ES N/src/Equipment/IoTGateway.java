@@ -3,7 +3,7 @@ package Equipment;
 import java.util.Iterator;
 import java.util.List;
 import java.time.LocalDateTime;
-
+import Data.Key;
 import Data.Position;
 import Data.User;
 import Interfaces.*;
@@ -27,14 +27,13 @@ public class IoTGateway implements IoTGatewayInterface {
     private IoTGateway() {
         this.connectedPhones = new ArrayList<CellphoneInterface>();
         this.connectedCoffeeMachines = new ArrayList<CoffeeMachineInterface>();
-        this.connectedSmartwatches = new ArrayList<>(SmartwatchInterface);
+        this.connectedSmartwatches = new ArrayList<SmartwatchInterface>();
         this.connectedDoors = new ArrayList<DoorInterface>();
     }
 
     public static IoTGateway getInstance() {
         if (ioTGatewayInstance == null) {
             ioTGatewayInstance = new IoTGateway();
-
         }
         return ioTGatewayInstance;
     }
@@ -74,7 +73,10 @@ public class IoTGateway implements IoTGatewayInterface {
         connectedSmartwatches.add(smartWatch);
     }
 
-
+    public List<DoorInterface> getConnectedDoors() {
+    	return this.connectedDoors;
+    }
+    
     public List<Integer> getDoorIDs() {
         List<Integer> doorIDs = new ArrayList<Integer>();
         for (DoorInterface door : connectedDoors) {
@@ -115,4 +117,11 @@ public class IoTGateway implements IoTGatewayInterface {
         }
         return false;
     }
+    
+    public void grantKey(Key doorKey, String targetUserName, int targetDoorID){
+		//User targetUser = getUserWithName(targetUserName);
+    	DoorInterface targetDoor = getDoorWithID(targetDoorID);
+    	targetDoor.addKey(doorKey);
+    	//targetUser.setUserKey(doorKey);
+	}
 }
