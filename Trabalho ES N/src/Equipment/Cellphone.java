@@ -24,11 +24,11 @@ public class Cellphone implements CellphoneInterface {
 	private Position myPosition;
 	
 	public Cellphone() {
-		this.connectedGateway = connectedGateway.getInstance();
+		this.connectedGateway = IoTGateway.getInstance();
 	}
 	
 	public Cellphone(IoTGatewayInterface connectedGateway, User connectedUser, Position myPosition) {
-		this.connectedGateway = connectedGateway.getInstance();
+		this.connectedGateway = IoTGateway.getInstance();
 		this.connectedUser = connectedUser;
 		this.myPosition = myPosition;
 	}

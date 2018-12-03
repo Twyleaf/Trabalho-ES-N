@@ -22,7 +22,7 @@ public class Door implements DoorInterface {
 		this.position = position;
 		this.manualMode = manualMode;
 		this.myKeys = new ArrayList<Key>();
-		this.connectedGateway = connectedGateway.getInstance();
+		this.connectedGateway = IoTGateway.getInstance();
 	}
 	
 	public int getID() {
